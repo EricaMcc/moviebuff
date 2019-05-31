@@ -8,11 +8,17 @@ module.exports = {
   mode: 'production',
   entry: `${src}/index.jsx`,
   module: {
-    rules: [{
+    rules: [
+      {
       test: /\.jsx$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
-    }]
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }
+  ]
   },
   devtool: 'inline-source-map',
   output: {
